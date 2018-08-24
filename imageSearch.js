@@ -9,7 +9,17 @@ document.getElementsByTagName('button')[0].addEventListener('click', () => {
 var getImage = (description) => {
   fetch(`https://images-api.nasa.gov/search?q=${description}`)
     .then((response) => {
-      return response.json();
+      if (response.status === 200) {
+        return response.json();
+      }
+      else {
+        return response.json().then((data) => {
+          let error = new Error(response.status);
+          error.response = data;
+          error.status = response.status;
+          throw error;
+        })
+      }
     })
     .then((images) => {
       imageId = findNasaId(images);
@@ -19,7 +29,18 @@ var getImage = (description) => {
       return fetch(`https://images-api.nasa.gov/asset/${result}`)
     })
     .then((response) => {
-      return response.json();
+      if (response.status === 200) {
+        return response.json();
+      }
+      else {
+        return response.json()
+          .then((data) => {
+            let error = new Error(response.status);
+            error.response = data;
+            error.status = response.status;
+            throw error;
+          })
+      }
     })
     .then((pic) => {
       picture = findPic(pic);
