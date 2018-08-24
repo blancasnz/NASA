@@ -45,7 +45,7 @@ function findNasaId(result) {
   var array = result.collection.items
   for (var i = 0; i < array.length; i++) {
     var item = array[i].data[0].nasa_id
-    if (item.length < 10) {
+    if (!isNaN(item[item.length - 1])) {
       return item;
     }
   }
