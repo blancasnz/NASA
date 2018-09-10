@@ -4,36 +4,52 @@
 <head>
   <title>NASA image search</title>
   <style>
-    #bod {
+    body {
+      text-align: center;
       background-color: black;
+      color: white;
+      font-family: helvetica;
     }
 
-    .container {
-      color: white;
+    p {
+      font-size: 22px;
+    }
+
+    input {
+      border: 0;
+      padding: 10px;
+      font-size: 18px;
     }
 
     #picture {
       width: 300px;
+      margin: auto;
+    }
 
+    input[type="submit"] {
+      background: #3577D1;
+      color: white;
     }
 
     .archivedImage {
-      width: 300px;
+      width: 200px;
+      height: 200px;
+      float: left;
     }
   </style>
 </head>
 
-<body id='bod'>
+<body>
   <div class='container'>
-    <h1>NASA Image Search</h1>
+    <p>Search a NASA Image!</p>
     <div class='image'>
       <img id='picture' src(unknown)>
     </div>
     <input type='text' placeholder='Jupiter'>
-    <button>Find Image!</button>
+    <input type='Submit' id='submit'>
   </div>
   <div class='container'>
-    <h1>Previous Searches</h1>
+    <p>My Previous Searches</p>
     <ul id='archive'>
     </ul>
   </div>

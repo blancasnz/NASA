@@ -101,7 +101,8 @@ var getImage = (description) => {
     })
 }
 
-document.getElementsByTagName('button')[0].addEventListener('click', () => {
+document.getElementById('submit').addEventListener('click', () => {
   var entered = document.getElementsByTagName('input')[0].value;
   getImage(entered);
+  // document.getElementById('submit').value = '';
 })
