@@ -34,7 +34,28 @@ if (localStorage) {
 }
 
 var fillInProfile = () => {
-  document.getElementById('picture').src = picture;
+  // document.getElementById('picture').src = picture;
+  var image = document.createElement('img');
+  var att = document.createAttribute('id');
+  var att2 = document.createAttribute('src');
+  att.value = 'foundPicture';
+  att2.value = picture;
+  image.setAttributeNode(att);
+  image.setAttributeNode(att2);
+
+  var oldImage;
+  var childExists = false;
+
+  if (childExists) {
+    document.getElementsByClassName('image')[0].removeChild(oldImage);
+    document.getElementsByClassName('image')[0].appendChild(image);
+    oldImage = image;
+  } else {
+    document.getElementsByClassName('image')[0].appendChild(image);
+    childExists = true;
+    oldImage = image;
+  }
+
 }
 
 var findPic = (pic) => {
@@ -104,5 +125,5 @@ var getImage = (description) => {
 document.getElementById('submit').addEventListener('click', () => {
   var entered = document.getElementsByTagName('input')[0].value;
   getImage(entered);
-  // document.getElementById('submit').value = '';
+  document.getElementById('input').value = '';
 })
