@@ -34,27 +34,29 @@ if (localStorage) {
 }
 
 var fillInProfile = () => {
-  // document.getElementById('picture').src = picture;
-  var image = document.createElement('img');
-  var att = document.createAttribute('id');
-  var att2 = document.createAttribute('src');
-  att.value = 'foundPicture';
-  att2.value = picture;
-  image.setAttributeNode(att);
-  image.setAttributeNode(att2);
+  document.getElementById('picture').src = picture;
+  // var image = document.createElement('img');
+  // var att = document.createAttribute('id');
+  // var att2 = document.createAttribute('src');
+  // att.value = 'foundPicture';
+  // att2.value = picture;
+  // image.setAttributeNode(att);
+  // image.setAttributeNode(att2);
 
-  var oldImage;
-  var childExists = false;
+  // var main = document.getElementsByClassName('image')[0];
+  // // var oldImage;
+  // var childExists = false;
 
-  if (childExists) {
-    document.getElementsByClassName('image')[0].removeChild(oldImage);
-    document.getElementsByClassName('image')[0].appendChild(image);
-    oldImage = image;
-  } else {
-    document.getElementsByClassName('image')[0].appendChild(image);
-    childExists = true;
-    oldImage = image;
-  }
+
+  // if (childExists) {
+  //   main.innerHTML = '';
+  //   main.appendChild(image);
+  //   // oldImage = image;
+  // } else {
+  //   main.appendChild(image);
+  //   childExists = true;
+  //   // oldImage = image;
+  // }
 
 }
 
